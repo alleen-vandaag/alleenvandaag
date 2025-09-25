@@ -1,0 +1,35 @@
+.fancy {
+    font-family: "Rouge Script", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+footer {
+    background-color: #344E41;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    flex-shrink: 0;
+}
+
+footer b {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
+footer b.bounce {
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-10px); }
+    60%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+}

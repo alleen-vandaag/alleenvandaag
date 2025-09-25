@@ -1,0 +1,55 @@
+.indexbanners {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: brightness(0.6) contrast(0.9);
+    max-height: 200px; 
+    object-fit: cover;  
+}
+div.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    justify-content: center;
+    flex-grow: 1; 
+    margin-left:20%;
+    margin-right:20%;
+}
+
+.box {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 5px 100px 20px;
+    font-size: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.box.full { 
+  flex: 1 1 100%; 
+  padding:20px;
+}
+.box.half { 
+  flex: 1 1 calc(50% - 10px); 
+  padding:20px;
+   }
+
+.flex-container .box:nth-child(-n+3) { 
+  flex: 1 1 calc(33.33% - 10px); 
+}
+
+.quote {
+  font-family: "Patrick Hand", cursive;
+  font-size:26px;
+  font-style: normal;
+  color: #000;
+}
+.auteur {
+  font-family: "Patrick Hand", cursive;
+  font-size:16px;
+  font-style: italic;
+  color: #000;
+}
