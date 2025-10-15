@@ -6,16 +6,15 @@ function loadComponent(id, file, callback) {
         })
         .then(html => {
             document.getElementById(id).innerHTML = html;
-            if (callback) callback(); // roep functie aan nadat HTML in de DOM staat
+            if (callback) callback(); 
         })
         .catch(err => console.error(err));
 }
 
-// Functie om de actieve link te markeren
 function setActiveMenu() {
     const navLinks = document.querySelectorAll('nav ul li a');
     let currentPath = window.location.pathname.split("/").pop();
-    if (currentPath === "") currentPath = "index.html"; // fallback voor homepage
+    if (currentPath === "") currentPath = "index.html";
 
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {
@@ -24,7 +23,10 @@ function setActiveMenu() {
     });
 }
 
-// Componenten laden en callback gebruiken voor menu
 loadComponent('header', 'header.html');
-loadComponent('menu', 'menu.html', setActiveMenu); // active class wordt nu pas gezet
-loadComponent('footer', 'footer.html');
+loadComponent('menu', 'menu.html', setActiveMenu);
+loadComponent('footer', 'footer.html', () => {
+    const script = document.createElement("script");
+    script.src = "js/footer.js";
+    document.body.appendChild(script);
+});

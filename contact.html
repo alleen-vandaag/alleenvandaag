@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <div id="header"></div>
+  <div id="menu"></div>
+
+  <div class="site-wrapper">
+    <main class="container">
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Heb je vragen of opmerkingen, of wil je een onderwerp voor ons blog aandragen waarin je jouw ervaring deelt?
+          Je mag ons altijd een bericht sturen. We luisteren graag, helpen waar we kunnen, en vinden het fijn om jouw ervaringen te horen. Samen maken we deze website beter voor iedereen die bezig is met herstel!
+        </p>
+
+        <form id="contact-form">
+          <label for="name">Naam:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Bericht:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Verstuur</button>
+        </form>
+        <p id="form-status"></p>
+      </section>
+    </main>
+  </div>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/components.js"></script>
+
+</body>
+</html>

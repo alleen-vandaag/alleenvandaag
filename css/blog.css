@@ -1,0 +1,113 @@
+.kopje {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center; 
+  padding-top:30px;
+}
+
+.sub-kopje {
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.tekst {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #000;
+  text-align:center;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; 
+    gap: 10px;
+}
+
+#blog-search {
+    width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#search-button {
+    padding: 5px 10px;
+    background-color: #588157;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#search-button:hover {
+    background-color: #4b6e52;
+}
+
+.main-content {
+    flex: 1; 
+    display: flex;
+    justify-content: center; 
+}
+
+.blogcontainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: min-content;
+    row-gap: 10px;       
+    column-gap: 20px; 
+    padding: 20px;
+    max-width: 1000px;
+    width: 100%;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.blogkaart {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    }
+
+.blogcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+.blogtitel {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: black;
+}
+
+.blogintro {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 8px 0;
+}
+
+.leesmeerlink {
+    text-decoration: underline;
+    color: #588157;
+    font-weight: bold;
+    margin-top: auto; 
+}
+
+.leesmeerlink:hover {
+    color: #4b6e52;
+}
+
+@media (max-width: 768px) {
+    .blogcontainer {
+        grid-template-columns: 1fr; 
+    }
+}
