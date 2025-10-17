@@ -23,11 +23,17 @@ a {
 
 .container {
     display: grid;
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
     padding: 40px;
     margin-left:20%;
     margin-right:20%;
     flex:1;
+}
+
+.container .sectie:first-child,
+.container .sectie:nth-child(2) {
+    grid-column: 1 / -1;
 }
 
 .sectie {
