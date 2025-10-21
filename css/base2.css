@@ -5,7 +5,9 @@ body, html {
     font-family: Helvetica, sans-serif;
     background-color: #f4f4f4;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a {
   color: #2c5f2d; 
   text-decoration: underline;
