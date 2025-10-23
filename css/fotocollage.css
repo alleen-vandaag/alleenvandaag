@@ -24,17 +24,10 @@ a {
 }
 
 
-.container {
-    display: grid;
-    gap: 20px;
-    padding: 40px;
-    margin-left:20%;
-    margin-right:20%;
-    flex:1;
-}
-
 .sectie {
   margin-bottom: 20px;
+  margin-left:20%;
+  margin-right:20%;
 }
 
 .kopje {
@@ -53,27 +46,12 @@ a {
   text-align: center;
 }
 
-.tips {
-  font-family: "Patrick Hand", cursive;
-  font-size: 20px;
-  font-style: normal;
-  margin:10px 0 5px 0;
-}
-
 .tekst {
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1.4;
   color: #000;
-}
-
-.kolommen {
-  display: flex;
-  gap: 40px; 
-  flex-wrap: wrap; 
-}
-
-.kolommen-tekst {
-  flex: 1 1 100px; 
+  font-style: italic;
+  text-align: center;
 }
 
 #disclaimer-popup {
@@ -124,7 +102,7 @@ a {
   font-size: 18px;
   cursor: pointer;
   display: none;
-  color: rgba(0, 0, 0, 0.5); /* zachter */
+  color: rgba(0, 0, 0, 0.5); 
   transition: color 0.2s ease, transform 0.2s ease;
 }
 #open-disclaimer:hover {
@@ -138,7 +116,7 @@ a {
 #disclaimer-text {
   max-height: 200px;
   overflow-y: auto;
-  padding-right: 5px; /* ruimte voor scrollbar */
+  padding-right: 5px; 
 }
 #disclaimer-text::-webkit-scrollbar {
     width: 6px; 
@@ -162,77 +140,131 @@ a {
     scrollbar-color: rgba(0,0,0,0.2) transparent;
 }
 
-.fact {
-  position: relative;
-  cursor: pointer; 
-  border-bottom: 2px dotted #3A5A40;
-  color: #2c5f2d;
-  transition: background-color 0.2s, color 0.2s;
-  padding: 0 2px;
+:root{
+  --gap: 18px;
+  --card-radius: 12px;
+  --card-shadow: 0 8px 22px rgba(16,24,40,0.06);
+  --muted: #6b7280;
 }
 
-.fact:hover {
-  background-color: rgba(88, 129, 87, 0.2); 
-  color: #1f3d28;
+.photo-collage { margin-top: 18px; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  align-items: start;
 }
 
-.facttext {
+.photo-card {
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.photo-card img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;    
+  object-fit: cover;       
+  cursor: zoom-in;
+  transition: transform 300ms ease;
+}
+
+.photo-card:hover { transform: translateY(-6px); }
+.photo-card img:hover  { transform: scale(1.03); }
+
+.photo-card figcaption{
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(15,23,42,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+}
+
+#lightbox {
+  position: fixed;
+  inset: 0;
   display: none;
-  width: 280px;
-  background-color: rgba(0,0,0,0.85);
-  color: #fff;
-  text-align: left;
-  padding: 10px;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 10;
-  top: 125%; 
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  line-height: 1.4;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
 }
 
-.facttext::before {
+#lightbox.open {
+  display: flex;
+}
+
+#lightbox::before {
   content: "";
   position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 0 8px 8px 8px;
-  border-style: solid;
-  border-color: transparent transparent rgba(0,0,0,0.85) transparent;
+  inset: 0;
+  background: rgba(2,6,23,0.6);
+  backdrop-filter: blur(4px) saturate(120%);
 }
 
-.foto-collage {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.polaroid {
-  display: inline-block;
-  background: #fff;
-  padding: 10px 10px 20px 10px; 
-  border: 1px solid #ddd;
+#lightbox .close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1202;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
 }
 
-.polaroid img {
+#lightbox .close:focus {
+  outline: 3px solid rgba(79,70,229,0.16);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+#lightbox .lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(2,6,23,0.6);
+  z-index: 1201;
+  object-fit: contain;
   display: block;
-  max-width: 100%;
-  height: auto; 
-  border-radius: 4px;
-  object-fit: cover;
-  max-height:250px;
 }
 
-.polaroid:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+#lightbox .lightbox-caption {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1201;
+  max-width: 90%;
+  word-wrap: break-word;
+  width: auto;
+  box-sizing: border-box;
 }
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

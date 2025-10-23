@@ -40,6 +40,10 @@ nav ul li a.active {
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
+nav ul li.has-dropdown {
+  position: relative;
+}
+
 nav ul li.has-dropdown .dropdown {
   display: none;
   position: absolute;
@@ -63,62 +67,6 @@ nav ul li.has-dropdown .dropdown li a {
 nav ul li.has-dropdown .dropdown li a:hover {
   background-color: #4B6E52;
 }
-
-.menu-toggle {
-  display: none;
-  background-color: #3A5A40;
-  color: white;
-  padding: 14px 20px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 18px;
-}
-
-@media (min-width: 769px) {
-  nav ul li.has-dropdown {
-    position: relative;
-  }
-  nav ul li.has-dropdown:hover .dropdown {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    background-color: #3A5A40;
-  }
-  nav ul.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav ul li {
-    margin: 5px 0;
-  }
-
-  nav ul li.has-dropdown {
-    width: 100%;
-    text-align: center;
-  }
-
-  nav ul li.has-dropdown .dropdown {
-    position: static;
-    display: none;
-    width: 100%;
-  }
-  nav ul li.has-dropdown .dropdown.show {
-    display: block;
-  }
-
-  nav ul li.has-dropdown .dropdown li a {
-    padding: 10px 0;
-    text-align: center;
-  }
+nav ul li.has-dropdown:hover .dropdown {
+  display: block;
 }

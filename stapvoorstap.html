@@ -20,32 +20,58 @@
     
 <div class="sectie">
   <div class="kopje">Stap voor stap</div>
+  <div class="tekst">Klik op een afbeelding om het te vergroten.</div>
 
-<div class="foto-collage">
-  <div class="polaroid">
-    <img src="images/stapvoorstap1.jpg">
+<section class="photo-collage" aria-label="Fotocollage">
+  <div class="gallery">
+    <figure class="photo-card">
+      <img src="images/stapvoorstap1.jpg" loading="lazy"
+           data-caption="Groei gaat niet in een rechte lijn, en de weg naar succes lijkt chaotisch. Tot je beseft dat elke omweg je iets waardevols leerde, en iedere kronkel in je pad een teken is dat je beweegt en leert">
+      <figcaption>Groei gaat niet in een rechte lijn, en de weg naar succes lijkt chaotisch. Tot je beseft dat elke omweg je iets waardevols leerde, en iedere kronkel in je pad een teken is dat je beweegt en leert.</figcaption>
+    </figure>
+
+    <figure class="photo-card">
+      <img src="images/stapvoorstap2.jpg" loading="lazy"
+           data-caption="Soms lijkt het alsof je vastzit, tot je uitzoomt en ziet hoeveel je al hebt bereikt. Een daling op de korte termijn is vaak gewoon een deel van een groter stijgend pad.">
+      <figcaption>Soms lijkt het alsof je vastzit, tot je uitzoomt en ziet hoeveel je al hebt bereikt. Een daling op de korte termijn is vaak gewoon een deel van een groter stijgend pad.</figcaption>
+    </figure>
+
+    <figure class="photo-card">
+      <img src="images/stapvoorstap3.jpg" loading="lazy"
+           data-caption="Rustig strand bij avond">
+      <figcaption>Strand</figcaption>
+    </figure>
+
+    <figure class="photo-card">
+      <img src="https://picsum.photos/id/1043/1200/900" alt="Stadsgezicht" loading="lazy"
+           data-caption="Modern stadsgezicht">
+      <figcaption>Stad</figcaption>
+    </figure>
+
+    <figure class="photo-card">
+      <img src="https://picsum.photos/id/1052/1200/900" alt="Bospad" loading="lazy"
+           data-caption="Sfeervol bospad">
+      <figcaption>Bospad</figcaption>
+    </figure>
+
+    <figure class="photo-card">
+      <img src="https://picsum.photos/id/1060/1200/900" alt="Bloemen close-up" loading="lazy"
+           data-caption="Close-up van bloemen">
+      <figcaption>Bloemen</figcaption>
+    </figure>
   </div>
-  <div class="polaroid">
-    <img src="images/stapvoorstap2.jpg">
-  </div>
-  <div class="polaroid">
-    <img src="foto3.jpg">
-  </div>
-  <div class="polaroid">
-    <img src="foto4.jpg">
-  </div>
-  <div class="polaroid">
-    <img src="foto5.jpg">
-  </div>
-  <div class="polaroid">
-    <img src="foto6.jpg">
-  </div>
-</div>
+</section>
 
 </div>
   <div id="footer"></div>
   
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" src="" alt="">
+  <p id="lightbox-caption" class="lightbox-caption"></p>
+</div>
+
   <script src="js/components.js"></script>
-  <script src="js/blog.js"></script>
+  <script src="js/fotocollage.js"></script>
 </body>
 </html>
