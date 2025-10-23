@@ -11,11 +11,5 @@ header {
 #titel {
     font-family: "Delius Unicase", cursive;
     font-weight: 400;
-    margin-bottom: -10px;
-}
-
-#subtitel {
-    font-family: "Patrick Hand", cursive;
-    font-size: 20px;
-    font-style: normal;
+    margin-bottom: 10px;
 }
