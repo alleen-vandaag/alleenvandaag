@@ -1,24 +1,24 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const currentPage = window.location.pathname.split("/").pop(); // bv. 'benikverslaafd.html'
+fetch('menu.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('menu').innerHTML = data;
 
-  // Zoek alle links in het menu
-  const links = document.querySelectorAll("nav ul li a");
+    // Active state logic:
+    const currentPage = window.location.pathname.split("/").pop();
 
-  links.forEach(link => {
-    const href = link.getAttribute("href");
+    const links = document.querySelectorAll("nav ul li a");
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage) {
+        link.classList.add("active");
 
-    // Check of dit de huidige pagina is
-    if (href === currentPage) {
-      link.classList.add("active");
-
-      // Als dit een submenu-item is, markeer ook de parent link
-      const parentDropdown = link.closest(".dropdown");
-      if (parentDropdown) {
-        const parentLink = parentDropdown.parentElement.querySelector("a");
-        if (parentLink) {
-          parentLink.classList.add("active");
+        const parentDropdown = link.closest(".dropdown");
+        if (parentDropdown) {
+          const parentLink = parentDropdown.parentElement.querySelector("a");
+          if (parentLink) {
+            parentLink.classList.add("active");
+          }
         }
       }
-    }
+    });
   });
-});
