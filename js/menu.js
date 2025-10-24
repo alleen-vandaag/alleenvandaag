@@ -1,12 +1,13 @@
 fetch('menu.html')
   .then(response => response.text())
   .then(data => {
-    document.getElementById('menu').innerHTML = data;
+    const menuContainer = document.getElementById('menu');
+    menuContainer.innerHTML = data;
 
-    // Active state logic:
     const currentPage = window.location.pathname.split("/").pop();
 
-    const links = document.querySelectorAll("nav ul li a");
+    const links = menuContainer.querySelectorAll("a");
+
     links.forEach(link => {
       const href = link.getAttribute("href");
       if (href === currentPage) {
@@ -21,4 +22,5 @@ fetch('menu.html')
         }
       }
     });
-  });
+  })
+  .catch(err => console.error("Menu kon niet geladen worden:", err));
